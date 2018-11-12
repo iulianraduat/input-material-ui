@@ -94,3 +94,7 @@ export default App;
 ### 1.0.0
 
 - input-material-ui is made publicly available
+
+### 1.0.1
+
+- replaced fontawesome icon with svg icon

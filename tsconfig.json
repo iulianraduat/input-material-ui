@@ -9,6 +9,7 @@
         "declaration": false,
         "sourceMap": true,
         "jsx": "react",
+        "skipLibCheck": true,
         "typeRoots": [
             "index.d.ts",
             "node_modules/@types"

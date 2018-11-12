@@ -1,39 +1,48 @@
-import * as React from "react";
-import * as FontAwesome from "react-fontawesome";
-import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
+import * as React from 'react';
+import { Dictionary } from "lodash";
+import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
 
-const style: React.CSSProperties = {
-  color: "#0080cc",
-  cursor: "pointer"
+import EyeSlashSvg from './EyeSlashSvg';
+import EyeSvg from './EyeSvg';
+
+const styles: Dictionary<React.CSSProperties> = {
+	adornment:{
+		color: '#0080cc',
+		cursor: 'pointer'
+	},
+	iconContainer:{
+		display: "flex"
+	}
 };
 
 class SeeHidePassword extends React.Component<SeePasswordProps> {
-  public render() {
-    return (
-      <InputAdornment style={style} position="start">
-        <div aria-label={this.getAriaLabel()} onClick={this.handleClick}>
-          <FontAwesome name={this.getIcon()} />
-        </div>
-      </InputAdornment>
-    );
-  }
+	public render() {
+		return (
+			<InputAdornment style={styles.adornment} position="start">
+				<div aria-label={this.getAriaLabel()} onClick={this.handleClick} style={styles.iconContainer}>
+					{this.getIcon()}
+				</div>
+			</InputAdornment>
+		);
+	}
 
-  private getAriaLabel() {
-    const { isPasswordVisible } = this.props;
+	private getAriaLabel() {
+		const { isPasswordVisible } = this.props;
 
-    return isPasswordVisible ? "Hide the password" : "See the password";
-  }
+		return isPasswordVisible ? 'Hide the password' : 'See the password';
+	}
 
-  private getIcon() {
-    return this.props.isPasswordVisible ? "eye-slash" : "eye";
-  }
+	private getIcon() {
+		const size: number = 20;
+		return this.props.isPasswordVisible ? <EyeSlashSvg size={size} /> : <EyeSvg size={size} />;
+	}
 
-  private handleClick = () => this.props.onClick(!this.props.isPasswordVisible);
+	private handleClick = () => this.props.onClick(!this.props.isPasswordVisible);
 }
 
 export interface SeePasswordProps {
-  isPasswordVisible: boolean;
-  onClick: (isPasswordVisible: boolean) => void;
+	isPasswordVisible: boolean;
+	onClick: (isPasswordVisible: boolean) => void;
 }
 
 export default SeeHidePassword;
