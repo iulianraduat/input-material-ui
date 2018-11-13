@@ -1,82 +1,102 @@
-import * as React from "react";
-import { isEmpty, isNil } from "lodash";
-import InputField from "./InputField";
-import RemoveValue from "./RemoveValue";
-import SeeHidePassword from "./SeeHidePassword";
+import * as React from 'react';
+import { isEmpty, isNil } from 'lodash';
 
-class InputMaterialUi extends React.Component<InputMaterialUiProps, InputMaterialUiState> {
-  public state: InputMaterialUiState = {
-    isPasswordVisible: false
-  };
+import InputField from './InputField';
+import RemoveValue from './RemoveValue';
+import SeeHidePassword from './SeeHidePassword';
 
-  public render() {
-    const { id, label, placeholder, value } = this.props;
+class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMaterialUiState> {
+	public state: InputMaterialUiState = {
+		isPasswordVisible: false
+	};
 
-    return (
-      <InputField
-        id={id}
-        type={this.getType()}
-        label={label}
-        placeholder={placeholder}
-        value={value}
-        onChange={this.handleChange}
-        startAdornment={this.getStartAdornament()}
-        endAdornment={this.getEndAdornament()}
-      />
-    );
-  }
+	public render() {
+		const { id, label, placeholder, value } = this.props;
 
-  private getType(): string {
-    const { type } = this.props;
+		return (
+			<InputField
+				id={id}
+				type={this.getType()}
+				label={label}
+				placeholder={placeholder}
+				value={value}
+				onChange={this.handleChange}
+				startAdornment={this.getStartAdornament()}
+				endAdornment={this.getEndAdornament()}
+			/>
+		);
+	}
 
-    if (isNil(type)) {
-      return "text";
-    }
+	public componentDidMount() {
+		if (this.props.value !== this.state.value) {
+			this.setState({
+				value: this.props.value
+			});
+		}
+	}
 
-    if (type !== "password") {
-      return type;
-    }
+	private getType(): string {
+		const { type } = this.props;
 
-    return this.state.isPasswordVisible ? "text" : "password";
-  }
+		if (isNil(type)) {
+			return 'text';
+		}
 
-  private getStartAdornament() {
-    if (this.props.type !== "password") {
-      return null;
-    }
+		if (type !== 'password') {
+			return type;
+		}
 
-    return <SeeHidePassword isPasswordVisible={this.state.isPasswordVisible} onClick={this.handleInputVisibility} />;
-  }
+		return this.state.isPasswordVisible ? 'text' : 'password';
+	}
 
-  private getEndAdornament() {
-    if (isEmpty(this.props.value)) {
-      return null;
-    }
+	private getStartAdornament() {
+		if (this.props.type !== 'password') {
+			return null;
+		}
 
-    return <RemoveValue onClick={this.handleRemoveValue} />;
-  }
+		const isPasswordVisible: boolean = this.state.isPasswordVisible;
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => this.props.onChange(event.target.value);
+		return <SeeHidePassword isPasswordVisible={isPasswordVisible} onClick={this.handleInputVisibility} />;
+	}
 
-  private handleRemoveValue = () => this.props.onChange("");
+	private getEndAdornament() {
+		if (isEmpty(this.state.value)) {
+			return null;
+		}
 
-  private handleInputVisibility = (isPasswordVisible: boolean) =>
-    this.setState({
-      isPasswordVisible
-    });
+		return <RemoveValue onClick={this.handleRemoveValue} />;
+	}
+
+	private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => this.handleChangeValue(event.target.value);
+
+	private handleRemoveValue = () => this.handleChangeValue('');
+
+	private handleChangeValue = (value: string) => {
+		this.setState({
+			value
+		});
+
+		this.props.onChange(value);
+	};
+
+	private handleInputVisibility = (isPasswordVisible: boolean) =>
+		this.setState({
+			isPasswordVisible
+		});
 }
 
 interface InputMaterialUiState {
-  isPasswordVisible: boolean;
+	isPasswordVisible: boolean;
+	value?: string;
 }
 
 export interface InputMaterialUiProps {
-  id?: string;
-  type?: string;
-  label: string;
-  value?: string;
-  placeholder?: string;
-  onChange: (value: string) => void;
+	id?: string;
+	type?: string;
+	label: string;
+	value?: string;
+	placeholder?: string;
+	onChange: (value: string) => void;
 }
 
 export default InputMaterialUi;

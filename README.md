@@ -98,3 +98,7 @@ export default App;
 ### 1.0.1
 
 - replaced fontawesome icon with svg icon
+
+### 1.0.2
+
+- fixed display of remove value when the field has a value
