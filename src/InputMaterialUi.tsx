@@ -11,7 +11,8 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 	};
 
 	public render() {
-		const { id, label, placeholder, value } = this.props;
+		const { id, label, placeholder } = this.props;
+		const { value } = this.state;
 
 		return (
 			<InputField
