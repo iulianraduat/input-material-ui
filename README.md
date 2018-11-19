@@ -102,3 +102,7 @@ export default App;
 ### 1.0.3
 
 - fixed display of remove value when the field has a value
+
+### 1.0.5
+
+- fixed the bug related to switching between being uncontroled/controled

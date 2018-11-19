@@ -7,7 +7,8 @@ import SeeHidePassword from './SeeHidePassword';
 
 class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMaterialUiState> {
 	public state: InputMaterialUiState = {
-		isPasswordVisible: false
+		isPasswordVisible: false,
+		value: ''
 	};
 
 	public render() {
@@ -29,7 +30,9 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 	}
 
 	public componentDidMount() {
-		if (this.props.value !== this.state.value) {
+		const { value } = this.props;
+
+		if (isNil(value) === false && value !== this.state.value) {
 			this.setState({
 				value: this.props.value
 			});
