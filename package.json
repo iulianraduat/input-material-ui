@@ -13,7 +13,10 @@
 		"type": "git",
 		"url": "git+https://github.com/iulian-radu-at/input-material-ui.git"
 	},
-	"files": [ "lib", "index.d.ts" ],
+	"files": [
+		"lib",
+		"index.d.ts"
+	],
 	"keywords": [
 		"text",
 		"input",
@@ -59,11 +62,16 @@
 		"react-dom": "^16.0.0"
 	},
 	"jest": {
-		"modulePathIgnorePatterns": [ "./node_modules", "./history" ],
+		"modulePathIgnorePatterns": [
+			"./node_modules",
+			"./history"
+		],
 		"transform": {
 			"^.+\\.js$": "babel-jest"
 		},
 		"testRegex": "src/*(/(__tests?__/)([^_].*/)*?[^_][^/]*?\\.(test|spec)?\\.(js?))$",
-		"setupFiles": [ "./enzymeAdapter.setup.js" ]
+		"setupFiles": [
+			"./enzymeAdapter.setup.js"
+		]
 	}
 }
