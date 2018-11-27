@@ -26,6 +26,7 @@ The component accepts the props defined bellow in the table.
 | InputMaterialUi _uses_ | Material-ui | React  |
 | ---------------------: | :---------: | :----: |
 |                  1.0.x |    3.2.0    | 16.5.2 |
+|                  1.1.x |    3.6.0    | 16.6.3 |
 
 ### About versioning schema used for InputMaterialUi
 
@@ -97,12 +98,16 @@ export default App;
 
 ### 1.0.1
 
-- replaced fontawesome icon with svg icon
+- Replaced fontawesome icon with svg icon
 
 ### 1.0.3
 
-- fixed display of remove value when the field has a value
+- Fixed display of remove value when the field has a value
 
 ### 1.0.5
 
-- fixed the bug related to switching between being uncontroled/controled
+- Fixed the bug related to switching between being uncontroled/controled
+
+### 1.1.0
+
+- Updated the react and material-ui package
