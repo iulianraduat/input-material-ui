@@ -12,19 +12,21 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 	};
 
 	public render() {
-		const { id, label, placeholder } = this.props;
-		const { value } = this.state;
+		const { id, label, placeholder, value: valueInProps } = this.props;
+		const { value: valueInState } = this.state;
+
+		const value: string | undefined = isNil(valueInProps) ? valueInState : valueInProps;
 
 		return (
 			<InputField
-				id={id}
-				type={this.getType()}
-				label={label}
-				placeholder={placeholder}
-				value={value}
-				onChange={this.handleChange}
-				startAdornment={this.getStartAdornament()}
 				endAdornment={this.getEndAdornament()}
+				id={id}
+				label={label}
+				onChange={this.handleChange}
+				placeholder={placeholder}
+				startAdornment={this.getStartAdornament()}
+				type={this.getType()}
+				value={value}
 			/>
 		);
 	}
@@ -96,11 +98,11 @@ interface InputMaterialUiState {
 
 export interface InputMaterialUiProps {
 	id?: string;
-	type?: string;
 	label: string;
-	value?: string;
-	placeholder?: string;
 	onChange: (value: string) => void;
+	placeholder?: string;
+	type?: string;
+	value?: string;
 }
 
 export default InputMaterialUi;

@@ -111,3 +111,7 @@ export default App;
 ### 1.1.0
 
 - Updated the react and material-ui package
+
+### 1.1.1
+
+- Fixed the controlled mode for input
