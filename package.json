@@ -1,6 +1,6 @@
 {
 	"name": "input-material-ui",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A material-ui INPUT component which allows to see/hide the password text of the field and to clear the input value",
 	"main": "lib/index.js",
 	"sideEffects": false,

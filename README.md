@@ -120,3 +120,8 @@ export default App;
 ### 1.2.0
 
 - Updated packages
+
+### 1.2.1
+
+- The input field received a name automatically. The name is created by doing kebabCase from the first defined of: id, label or placeholder.
+- Fixed the height of the input field to do not cut the letter 'g' or 'y'

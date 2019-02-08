@@ -5,6 +5,10 @@ import InputLabel from '@material-ui/core/InputLabel/InputLabel';
 import Input from '@material-ui/core/Input/Input';
 import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 
+const style: React.CSSProperties = {
+	height: '1.1875rem'
+};
+
 const getType = (type?: string): string => (isEmpty(type) ? 'text' : type as string);
 
 const getLabel = (id?: string, label?: string) => {
@@ -28,6 +32,9 @@ const InputField = (props: InputFieldProps) => (
 		{getLabel(props.id, props.label)}
 		<Input
 			id={props.id}
+			inputProps={{
+				style
+			}}
 			type={getType(props.type)}
 			placeholder={props.placeholder}
 			value={props.value}
