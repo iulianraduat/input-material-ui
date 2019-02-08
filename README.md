@@ -116,3 +116,7 @@ export default App;
 ### 1.1.1
 
 - Fixed the controlled mode for input
+
+### 1.2.0
+
+- Updated packages
