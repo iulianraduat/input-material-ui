@@ -1,66 +1,96 @@
 import * as React from 'react';
+import {
+	FormControl,
+	FormHelperText,
+	Input,
+	InputLabel
+	} from '@material-ui/core';
+import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
+import { InputLabelProps } from '@material-ui/core/InputLabel';
+import { InputProps } from '@material-ui/core/Input';
 import { isEmpty, kebabCase } from 'lodash';
-import FormControl from '@material-ui/core/FormControl/FormControl';
-import InputLabel from '@material-ui/core/InputLabel/InputLabel';
-import Input from '@material-ui/core/Input/Input';
-import FormHelperText from '@material-ui/core/FormHelperText/FormHelperText';
 
 const style: React.CSSProperties = {
-	height: '1.1875rem'
+  height: '1.1875rem'
 };
 
-const getType = (type?: string): string => (isEmpty(type) ? 'text' : type as string);
+const getType = (type?: string): string => (isEmpty(type) ? 'text' : (type as string));
 
-const getLabel = (id?: string, label?: string) => {
-	if (isEmpty(label)) {
-		return null;
-	}
+const getLabel = (id?: string, label?: string, inputLabelProps?: InputLabelProps) => {
+  if (isEmpty(label)) {
+    return null;
+  }
 
-	return <InputLabel htmlFor={id}>{label}</InputLabel>;
+  if (inputLabelProps === undefined) {
+    inputLabelProps = {};
+  }
+
+  return (
+    <InputLabel {...inputLabelProps} htmlFor={id}>
+      {label}
+    </InputLabel>
+  );
 };
 
-const getHelperText = (helperText: React.ReactNode) => {
-	if (isEmpty(helperText)) {
-		return null;
-	}
+const getHelperText = (helperText: React.ReactNode, helperTextProps?: FormHelperTextProps) => {
+  if (isEmpty(helperText)) {
+    return null;
+  }
 
-	return <FormHelperText>{helperText}</FormHelperText>;
+  if (helperTextProps === undefined) {
+    helperTextProps = {};
+  }
+
+  return <FormHelperText {...helperTextProps}>{helperText}</FormHelperText>;
 };
 
-const InputField = (props: InputFieldProps) => (
-	<FormControl fullWidth={true}>
-		{getLabel(props.id, props.label)}
-		<Input
-			id={props.id}
-			inputProps={{
-				style
-			}}
-			type={getType(props.type)}
-			placeholder={props.placeholder}
-			value={props.value}
-			name={kebabCase(props.id || props.label || props.placeholder)}
-			onFocus={props.onGotFocus}
-			onBlur={props.onLostFocus}
-			onChange={props.onChange}
-			startAdornment={props.startAdornment}
-			endAdornment={props.endAdornment}
-		/>
-		{getHelperText(props.helperText)}
-	</FormControl>
-);
+const InputField = (props: InputFieldProps) => {
+  const inputProps: InputProps = props.inputProps
+    ? props.inputProps
+    : {
+        inputProps: {}
+      };
+
+  return (
+    <FormControl fullWidth={true}>
+      {getLabel(props.id, props.label, props.inputLabelProps)}
+      <Input
+        {...inputProps}
+        id={props.id}
+        inputProps={{
+          ...inputProps.inputProps,
+          style
+        }}
+        type={getType(props.type)}
+        placeholder={props.placeholder}
+        value={props.value}
+        name={kebabCase(props.id || props.label || props.placeholder)}
+        onFocus={props.onGotFocus}
+        onBlur={props.onLostFocus}
+        onChange={props.onChange}
+        startAdornment={props.startAdornment}
+        endAdornment={props.endAdornment}
+      />
+      {getHelperText(props.helperText, props.helperTextProps)}
+    </FormControl>
+  );
+};
 
 export interface InputFieldProps {
-	id?: string;
-	type: string;
-	label?: string;
-	placeholder?: string;
-	value?: string;
-	onGotFocus?: () => void;
-	onLostFocus?: () => void;
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-	startAdornment?: React.ReactNode;
-	endAdornment?: React.ReactNode;
-	helperText?: string;
+  endAdornment?: React.ReactNode;
+  helperText?: string;
+  helperTextProps?: FormHelperTextProps;
+  id?: string;
+  inputProps?: InputProps;
+  inputLabelProps?: InputLabelProps;
+  label?: string;
+  onGotFocus?: () => void;
+  onLostFocus?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  startAdornment?: React.ReactNode;
+  type: string;
+  value?: string;
 }
 
 export default InputField;
