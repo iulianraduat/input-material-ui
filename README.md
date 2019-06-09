@@ -4,20 +4,28 @@ A material-ui INPUT component which allows to see/hide the password text of the 
 
 ---
 
+## Demo
+
+You can access the storybook for this component [here](https://iulian-radu-at.github.io/input-material-ui/).
+
 ## Props
 
 The component accepts the props defined bellow in the table.
 
 ### Props accepted by InputMaterialUi
 
-| Name        | Type                    | Required | Default   | Description                                            |
-|-------------|-------------------------|----------|-----------|--------------------------------------------------------|
-| id          | string                  | no       | undefined | The id of the field                                    |
-| label       | string                  | yes      | -         | The label of the field                                 |
-| onChange    | (value: string) => void | yes      | -         | The callback function called when the value is changed |
-| placeholder | string                  | no       | undefined | The placeholder of the field                           |
-| type        | string                  | no       | text      | The type of the field; ex. text, password              |
-| value       | string                  | no       | undefined | The value of the field                                 |
+| Name                | Type                    | Required | Default   | Description                                            |
+|---------------------|-------------------------|----------|-----------|--------------------------------------------------------|
+| FormHelperTextProps | FormHelperTextProps     | no       | undefined | The props passed to helper text                        |
+| helperText          | string                  | no       | undefined | The helper text                                        |
+| id                  | string                  | no       | undefined | The id of the field                                    |
+| InputLabelProps     | InputLabelProps         | no       | undefined | The Props passed to label                              |
+| InputProps          | InputProps              | no       | undefined | The props passed to input field                        |
+| label               | string                  | yes      | -         | The label of the field                                 |
+| onChange            | (value: string) => void | yes      | -         | The callback function called when the value is changed |
+| placeholder         | string                  | no       | undefined | The placeholder of the field                           |
+| type                | string                  | no       | text      | The type of the field; ex. text, password              |
+| value               | string                  | no       | undefined | The value of the field                                 |
 
 ---
 
@@ -101,7 +109,7 @@ export default App;
 
 ### 1.0.1
 
-- Replaced fontawesome icon with svg icon
+- Replaced fontawesome icon with an svg icon
 
 ### 1.0.3
 
@@ -135,3 +143,9 @@ export default App;
 ### 2.0.0
 
 - Updated packages
+
+### 2.0.1
+
+- Added the possibility to display a helper text
+- Added new props for passing props to input field, label and helper text
+- Added a storybook for this component
