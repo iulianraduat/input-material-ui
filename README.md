@@ -50,7 +50,7 @@ The component accepts the props defined bellow in the table.
 
 ## Example
 
-The base component which allows to create read-only or creatable select components for selecting only one or more values:
+The base component which allows to create an input with a visible or masked input:
 
 ```js
 import * as React from "react";
