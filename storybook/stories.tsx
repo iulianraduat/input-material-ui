@@ -35,6 +35,7 @@ const helperTextProps: FormHelperTextProps = {
 const doNothing = () => {};
 
 storiesOf('InputMaterialUi', module)
+  .addParameters({ options: { showPanel: false } })
   .add('the field', () => (
     <div>
       <InputMaterialUi label="As text field" onChange={doNothing} />
