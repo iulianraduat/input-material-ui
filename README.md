@@ -1,4 +1,4 @@
-# input-material-ui
+# input-material-ui ![Weekly downloads](https://img.shields.io/npm/dw/input-material-ui "Weekly downloads")
 
 A material-ui INPUT component which allows to see/hide the password text of the field and to clear the input value
 
@@ -15,7 +15,7 @@ The component accepts the props defined bellow in the table.
 ### Props accepted by InputMaterialUi
 
 | Name                | Type                    | Required | Default   | Description                                            |
-|---------------------|-------------------------|----------|-----------|--------------------------------------------------------|
+| ------------------- | ----------------------- | -------- | --------- | ------------------------------------------------------ |
 | FormHelperTextProps | FormHelperTextProps     | no       | undefined | The props passed to helper text                        |
 | helperText          | string                  | no       | undefined | The helper text                                        |
 | id                  | string                  | no       | undefined | The id of the field                                    |
@@ -32,7 +32,7 @@ The component accepts the props defined bellow in the table.
 ## Versions
 
 | InputMaterialUi _uses_ | Material-ui | React  |
-|-----------------------:|:-----------:|:------:|
+| ---------------------: | :---------: | :----: |
 |                  1.0.x |    3.2.0    | 16.5.2 |
 |                  1.1.x |    3.6.0    | 16.6.3 |
 |                  1.2.x |    3.9.2    | 16.8.1 |
@@ -41,6 +41,7 @@ The component accepts the props defined bellow in the table.
 |                  2.1.x |    4.2.0    | 16.8.6 |
 |                  2.2.x |    4.3.2    | 16.9.0 |
 |                  2.3.x |    4.9.0    | 16.9.0 |
+|                  2.4.x |    4.9.7    | 16.9.0 |
 
 ### About versioning schema used for InputMaterialUi
 
@@ -164,3 +165,8 @@ export default App;
 ### 2.3.0
 
 - Updated packages
+
+### 2.4.0
+
+- Updated packages
+- Moved from npm to yarn
