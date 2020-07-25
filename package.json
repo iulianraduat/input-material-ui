@@ -1,6 +1,6 @@
 {
   "name": "input-material-ui",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "A material-ui INPUT component which allows to see/hide the password text of the field and to clear the input value",
   "main": "lib/index.js",
   "sideEffects": false,
@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -c storybook",
     "build-storybook": "build-storybook -c storybook -o docs",
-    "commit-storybook": "git add . && git commit -m \"Updated storybook\""
+    "commit-storybook": "git add . && git commit -m \"Updated storybook\"",
+    "all": "yarn install && yarn build-storybook && yarn deploy"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,7 @@
   },
   "homepage": "https://github.com/iulian-radu-at/input-material-ui#readme",
   "dependencies": {
-    "@material-ui/core": "^4.10.2",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "lodash": "^4.17.15"
   },
