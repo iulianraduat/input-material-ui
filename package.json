@@ -1,6 +1,6 @@
 {
   "name": "input-material-ui",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "A material-ui INPUT component which allows to see/hide the password text of the field and to clear the input value",
   "main": "lib/index.js",
   "sideEffects": false,
@@ -8,10 +8,10 @@
     "build": "rimraf ./lib && tsc",
     "deploy": "cross-env NODE_ENV=production yarn build && yarn publish --non-interactive",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -c storybook",
-    "build-storybook": "build-storybook -c storybook -o docs",
-    "commit-storybook": "git add . && git commit -m \"Updated storybook\"",
-    "all": "yarn install && yarn build-storybook && yarn deploy"
+    "storybook:start": "start-storybook -c storybook",
+    "storybook:build": "build-storybook -c storybook -o docs",
+    "storybook:commit": "git add . && git commit -m \"Updated storybook\"",
+    "all": "yarn install && yarn storybook:build && yarn deploy"
   },
   "repository": {
     "type": "git",

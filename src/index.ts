@@ -1,1 +1,1 @@
-export * from './InputMaterialUi';
+export { default, InputMaterialUiProps } from "./InputMaterialUi";
