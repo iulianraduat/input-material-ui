@@ -1,4 +1,4 @@
-# input-material-ui ![Weekly downloads](https://img.shields.io/npm/dw/input-material-ui "Weekly downloads")
+# input-material-ui ![Weekly downloads](https://img.shields.io/npm/dw/input-material-ui 'Weekly downloads')
 
 A material-ui INPUT component which allows to see/hide the password text of the field and to clear the input value
 
@@ -31,19 +31,20 @@ The component accepts the props defined bellow in the table.
 
 ## Versions
 
-| InputMaterialUi _uses_ | Material-ui | React  |
-| ---------------------: | :---------: | :----: |
-|                  1.0.x |    3.2.0    | 16.5.2 |
-|                  1.1.x |    3.6.0    | 16.6.3 |
-|                  1.2.x |    3.9.2    | 16.8.1 |
-|                  1.3.x |    3.9.3    | 16.8.6 |
-|                  2.0.x |    4.0.2    | 16.8.6 |
-|                  2.1.x |    4.2.0    | 16.8.6 |
-|                  2.2.x |    4.3.2    | 16.9.0 |
-|                  2.3.x |    4.9.0    | 16.9.0 |
-|                  2.4.x |    4.9.7    | 16.9.0 |
-|                  2.5.x |   4.10.2    | 16.9.0 |
-|                  2.6.x |   4.11.0    | 16.9.0 |
+| InputMaterialUi _uses_ | Material-ui |      React       |
+| ---------------------: | :---------: | :--------------: |
+|                  1.0.x |    3.2.0    |      16.5.2      |
+|                  1.1.x |    3.6.0    |      16.6.3      |
+|                  1.2.x |    3.9.2    |      16.8.1      |
+|                  1.3.x |    3.9.3    |      16.8.6      |
+|                  2.0.x |    4.0.2    |      16.8.6      |
+|                  2.1.x |    4.2.0    |      16.8.6      |
+|                  2.2.x |    4.3.2    |      16.9.0      |
+|                  2.3.x |    4.9.0    |      16.9.0      |
+|                  2.4.x |    4.9.7    |      16.9.0      |
+|                  2.5.x |   4.10.2    |      16.9.0      |
+|                  2.6.x |   4.11.0    |      16.9.0      |
+|                  2.7.x |   4.11.3    | 16.9.0 or 17.0.0 |
 
 ### About versioning schema used for InputMaterialUi
 
@@ -58,8 +59,8 @@ The component accepts the props defined bellow in the table.
 The base component which allows to create an input with a visible or masked input:
 
 ```js
-import * as React from "react";
-import InputMaterialUi from "input-material-ui";
+import * as React from 'react';
+import InputMaterialUi from 'input-material-ui';
 
 class App extends React.Component {
   render() {
@@ -85,8 +86,8 @@ export default App;
 ```
 
 ```js
-import * as React from "react";
-import InputMaterialUi from "input-material-ui";
+import * as React from 'react';
+import InputMaterialUi from 'input-material-ui';
 
 class App extends React.Component {
   render() {
@@ -184,3 +185,8 @@ export default App;
 ### 2.6.1
 
 - Fixed crash produced by "export \* from"
+
+### 2.7.0
+
+- Accepting React 17 as peerDependencies
+- Fixed security warnings
