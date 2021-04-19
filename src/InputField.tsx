@@ -1,17 +1,12 @@
 import * as React from 'react';
-import {
-	FormControl,
-	FormHelperText,
-	Input,
-	InputLabel
-	} from '@material-ui/core';
+import { FormControl, FormHelperText, Input, InputLabel } from '@material-ui/core';
 import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
 import { InputLabelProps } from '@material-ui/core/InputLabel';
 import { InputProps } from '@material-ui/core/Input';
 import { isEmpty, kebabCase } from 'lodash';
 
 const style: React.CSSProperties = {
-  height: '1.1875rem'
+  height: '1.1875rem',
 };
 
 const getType = (type?: string): string => (isEmpty(type) ? 'text' : (type as string));
@@ -48,7 +43,7 @@ const InputField = (props: InputFieldProps) => {
   const inputProps: InputProps = props.inputProps
     ? props.inputProps
     : {
-        inputProps: {}
+        inputProps: {},
       };
 
   return (
@@ -59,7 +54,7 @@ const InputField = (props: InputFieldProps) => {
         id={props.id}
         inputProps={{
           ...inputProps.inputProps,
-          style
+          style,
         }}
         type={getType(props.type)}
         placeholder={props.placeholder}

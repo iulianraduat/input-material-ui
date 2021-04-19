@@ -1,16 +1,16 @@
+import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
+import { InputProps } from '@material-ui/core/Input';
+import { InputLabelProps } from '@material-ui/core/InputLabel';
+import { isEmpty, isNil } from 'lodash';
 import * as React from 'react';
 import InputField from './InputField';
 import RemoveValue from './RemoveValue';
 import SeeHidePassword from './SeeHidePassword';
-import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { InputProps } from '@material-ui/core/Input';
-import { isEmpty, isNil } from 'lodash';
 
 class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMaterialUiState> {
   public state: InputMaterialUiState = {
     isPasswordVisible: false,
-    value: ''
+    value: undefined,
   };
 
   public render() {
@@ -22,9 +22,9 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
       InputProps,
       label,
       placeholder,
-      value: valueInProps
+      value: valueInProps,
     } = this.props;
-    const { value: valueInState } = this.state;
+    const { value: valueInState = '' } = this.state;
 
     const value: string | undefined = isNil(valueInProps) ? valueInState : valueInProps;
 
@@ -47,11 +47,18 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
   }
 
   public componentDidMount() {
-    const { value } = this.props;
+    const { defaultValue, value } = this.props;
+
+    if (isNil(this.state.value) && isNil(defaultValue) === false) {
+      this.setState({
+        value: defaultValue,
+      });
+      return;
+    }
 
     if (isNil(value) === false && value !== this.state.value) {
       this.setState({
-        value: this.props.value
+        value: this.props.value,
       });
     }
   }
@@ -94,7 +101,7 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 
   private handleChangeValue = (value: string) => {
     this.setState({
-      value
+      value,
     });
 
     this.props.onChange(value);
@@ -102,7 +109,7 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 
   private handleInputVisibility = (isPasswordVisible: boolean) =>
     this.setState({
-      isPasswordVisible
+      isPasswordVisible,
     });
 }
 
@@ -112,6 +119,7 @@ interface InputMaterialUiState {
 }
 
 export interface InputMaterialUiProps {
+  defaultValue?: string;
   FormHelperTextProps?: FormHelperTextProps;
   helperText?: string;
   id?: string;

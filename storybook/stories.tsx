@@ -6,30 +6,30 @@ import { InputProps } from '@material-ui/core/Input';
 import { storiesOf } from '@storybook/react';
 
 const style: React.CSSProperties = {
-  height: 20
+  height: 20,
 };
 
 const inputLabelProps: InputLabelProps = {
   style: {
     color: '#000088',
     fontWeight: 'bold',
-    marginLeft: 20
-  }
+    marginLeft: 20,
+  },
 };
 
 const inputProps: InputProps = {
   style: {
     color: '#888888',
-    fontStyle: 'italic'
-  }
+    fontStyle: 'italic',
+  },
 };
 
 const helperTextProps: FormHelperTextProps = {
   style: {
     color: 'white',
     backgroundColor: 'red',
-    padding: 3
-  }
+    padding: 3,
+  },
 };
 
 const doNothing = () => {};
@@ -41,6 +41,13 @@ storiesOf('InputMaterialUi', module)
       <InputMaterialUi label="As text field" onChange={doNothing} />
       <div style={style} />
       <InputMaterialUi label="As password field" type="password" onChange={doNothing} />
+    </div>
+  ))
+  .add('with default value', () => (
+    <div>
+      <InputMaterialUi label="As text field" defaultValue="username" onChange={doNothing} />
+      <div style={style} />
+      <InputMaterialUi label="As password field" defaultValue="password" type="password" onChange={doNothing} />
     </div>
   ))
   .add('with value', () => (
