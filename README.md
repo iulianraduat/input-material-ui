@@ -46,6 +46,7 @@ The component accepts the props defined bellow in the table.
 |                  2.6.x |   4.11.0    |      16.9.0      |
 |                  2.7.x |   4.11.3    | 16.9.0 or 17.0.0 |
 |                  2.8.x |   4.11.3    | 16.9.0 or 17.0.0 |
+|                  2.9.x |   4.12.3    | 16.9.0 or 17.0.0 |
 
 ### About versioning schema used for InputMaterialUi
 
@@ -195,3 +196,7 @@ export default App;
 ### 2.8.0
 
 - Added support for defaultValue
+
+### 2.9.0
+
+- Updated the packages
