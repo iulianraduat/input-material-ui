@@ -1,23 +1,27 @@
-import * as React from 'react';
+import InputAdornment from '@mui/material/InputAdornment/InputAdornment';
+import React from 'react';
 import EyeSlashSvg from './EyeSlashSvg';
 import EyeSvg from './EyeSvg';
-import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
 
 const styles: { [key: string]: React.CSSProperties } = {
   adornment: {
     color: '#0080cc',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
   iconContainer: {
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 };
 
 class SeeHidePassword extends React.Component<SeePasswordProps> {
   public render() {
     return (
       <InputAdornment style={styles.adornment} position="start">
-        <div aria-label={this.getAriaLabel()} onClick={this.handleClick} style={styles.iconContainer}>
+        <div
+          aria-label={this.getAriaLabel()}
+          onClick={this.handleClick}
+          style={styles.iconContainer}
+        >
           {this.getIcon()}
         </div>
       </InputAdornment>
@@ -32,7 +36,11 @@ class SeeHidePassword extends React.Component<SeePasswordProps> {
 
   private getIcon() {
     const size: number = 20;
-    return this.props.isPasswordVisible ? <EyeSlashSvg size={size} /> : <EyeSvg size={size} />;
+    return this.props.isPasswordVisible ? (
+      <EyeSlashSvg size={size} />
+    ) : (
+      <EyeSvg size={size} />
+    );
   }
 
   private handleClick = () => this.props.onClick(!this.props.isPasswordVisible);

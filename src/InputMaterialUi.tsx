@@ -1,13 +1,17 @@
-import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { InputProps } from '@material-ui/core/Input';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { isEmpty, isNil } from 'lodash';
-import * as React from 'react';
+import { FormHelperTextProps } from '@mui/material/FormHelperText';
+import { InputProps } from '@mui/material/Input';
+import { InputLabelProps } from '@mui/material/InputLabel';
+import isEmpty from 'lodash/isEmpty';
+import isNil from 'lodash/isNil';
+import React from 'react';
 import InputField from './InputField';
 import RemoveValue from './RemoveValue';
 import SeeHidePassword from './SeeHidePassword';
 
-class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMaterialUiState> {
+class InputMaterialUi extends React.PureComponent<
+  InputMaterialUiProps,
+  InputMaterialUiState
+> {
   public state: InputMaterialUiState = {
     isPasswordVisible: false,
     value: undefined,
@@ -26,7 +30,9 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
     } = this.props;
     const { value: valueInState = '' } = this.state;
 
-    const value: string | undefined = isNil(valueInProps) ? valueInState : valueInProps;
+    const value: string | undefined = isNil(valueInProps)
+      ? valueInState
+      : valueInProps;
 
     return (
       <InputField
@@ -84,7 +90,12 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
 
     const isPasswordVisible: boolean = this.state.isPasswordVisible;
 
-    return <SeeHidePassword isPasswordVisible={isPasswordVisible} onClick={this.handleInputVisibility} />;
+    return (
+      <SeeHidePassword
+        isPasswordVisible={isPasswordVisible}
+        onClick={this.handleInputVisibility}
+      />
+    );
   }
 
   private getEndAdornament() {
@@ -95,7 +106,8 @@ class InputMaterialUi extends React.PureComponent<InputMaterialUiProps, InputMat
     return <RemoveValue onClick={this.handleRemoveValue} />;
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => this.handleChangeValue(event.target.value);
+  private handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    this.handleChangeValue(event.target.value);
 
   private handleRemoveValue = () => this.handleChangeValue('');
 

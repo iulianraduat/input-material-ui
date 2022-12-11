@@ -1,17 +1,17 @@
-import * as React from 'react';
-import ClearIcon from '@material-ui/icons/Clear';
-import InputAdornment from '@material-ui/core/InputAdornment/InputAdornment';
+import ClearIcon from '@mui/icons-material/Clear';
+import InputAdornment from '@mui/material/InputAdornment/InputAdornment';
+import React from 'react';
 
 const styles: { [key: string]: React.CSSProperties } = {
   adornment: {
     color: '#ff0000',
     cursor: 'pointer',
-    fontWeight: 'bolder'
+    fontWeight: 'bolder',
   },
   svg: {
     width: 18,
-    height: 18
-  }
+    height: 18,
+  },
 };
 
 const RemoveValue = (props: RemoveValueProps) => (

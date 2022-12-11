@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { InputProps } from '@material-ui/core/Input';
+import { FormHelperTextProps } from '@mui/material/FormHelperText';
+import { InputLabelProps } from '@mui/material/InputLabel';
+import { InputProps } from '@mui/material/Input';
 
-export interface InputMaterialUiProps extends React.Props<InputMaterialUi> {
+export interface InputMaterialUiProps {
   defaultValue?: string;
   FormHelperTextProps?: FormHelperTextProps;
   helperText?: string;

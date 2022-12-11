@@ -1,17 +1,23 @@
-import * as React from 'react';
-import { FormControl, FormHelperText, Input, InputLabel } from '@material-ui/core';
-import { FormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { InputLabelProps } from '@material-ui/core/InputLabel';
-import { InputProps } from '@material-ui/core/Input';
-import { isEmpty, kebabCase } from 'lodash';
+import { FormControl, FormHelperText, Input, InputLabel } from '@mui/material';
+import { FormHelperTextProps } from '@mui/material/FormHelperText';
+import { InputProps } from '@mui/material/Input';
+import { InputLabelProps } from '@mui/material/InputLabel';
+import isEmpty from 'lodash/isEmpty';
+import kebabCase from 'lodash/kebabCase';
+import React from 'react';
 
 const style: React.CSSProperties = {
   height: '1.1875rem',
 };
 
-const getType = (type?: string): string => (isEmpty(type) ? 'text' : (type as string));
+const getType = (type?: string): string =>
+  isEmpty(type) ? 'text' : (type as string);
 
-const getLabel = (id?: string, label?: string, inputLabelProps?: InputLabelProps) => {
+const getLabel = (
+  id?: string,
+  label?: string,
+  inputLabelProps?: InputLabelProps
+) => {
   if (isEmpty(label)) {
     return null;
   }
@@ -27,7 +33,10 @@ const getLabel = (id?: string, label?: string, inputLabelProps?: InputLabelProps
   );
 };
 
-const getHelperText = (helperText: React.ReactNode, helperTextProps?: FormHelperTextProps) => {
+const getHelperText = (
+  helperText: React.ReactNode,
+  helperTextProps?: FormHelperTextProps
+) => {
   if (isEmpty(helperText)) {
     return null;
   }
