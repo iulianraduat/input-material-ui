@@ -211,3 +211,7 @@ export default App;
 ### 3.1.0
 
 - Updated the packages
+
+### 3.1.1
+
+- Fixed bundled lib
