@@ -1,7 +1,7 @@
 import { FormHelperTextProps } from '@mui/material/FormHelperText';
 import { InputProps } from '@mui/material/Input';
 import { InputLabelProps } from '@mui/material/InputLabel';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import InputMaterialUi from '../src/InputMaterialUi';
 
@@ -34,12 +34,14 @@ const helperTextProps: FormHelperTextProps = {
 
 const doNothing = () => {};
 
-export default {
+const meta: Meta<typeof InputMaterialUi> = {
   title: 'InputMaterialUi',
   component: InputMaterialUi,
-} as ComponentMeta<typeof InputMaterialUi>;
+} as Meta<typeof InputMaterialUi>;
+export default meta;
+type Story = StoryObj<typeof InputMaterialUi>;
 
-export const TheField: ComponentStory<typeof InputMaterialUi> = () => (
+export const TheField = () => (
   <div>
     <InputMaterialUi label="As text field" onChange={doNothing} />
     <div style={style} />
@@ -51,7 +53,7 @@ export const TheField: ComponentStory<typeof InputMaterialUi> = () => (
   </div>
 );
 
-export const WithDefaultValue: ComponentStory<typeof InputMaterialUi> = () => (
+export const WithDefaultValue = () => (
   <div>
     <InputMaterialUi
       label="As text field"
@@ -68,7 +70,7 @@ export const WithDefaultValue: ComponentStory<typeof InputMaterialUi> = () => (
   </div>
 );
 
-export const WithValue: ComponentStory<typeof InputMaterialUi> = () => (
+export const WithValue = () => (
   <div>
     <InputMaterialUi
       label="As text field"
@@ -85,7 +87,7 @@ export const WithValue: ComponentStory<typeof InputMaterialUi> = () => (
   </div>
 );
 
-export const WithPlaceholder: ComponentStory<typeof InputMaterialUi> = () => (
+export const WithPlaceholder = () => (
   <div>
     <InputMaterialUi
       label="With placeholder"
@@ -102,7 +104,7 @@ export const WithPlaceholder: ComponentStory<typeof InputMaterialUi> = () => (
   </div>
 );
 
-export const WithHelperText: ComponentStory<typeof InputMaterialUi> = () => (
+export const WithHelperText = () => (
   <div>
     <InputMaterialUi
       label="With helper text"
@@ -119,7 +121,7 @@ export const WithHelperText: ComponentStory<typeof InputMaterialUi> = () => (
   </div>
 );
 
-export const Customized: ComponentStory<typeof InputMaterialUi> = () => (
+export const Customized = () => (
   <div>
     <InputMaterialUi
       label="As text field"
